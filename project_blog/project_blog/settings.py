@@ -33,10 +33,13 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'crispy_forms',# adding crispy forms for forms styling
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog.apps.BlogConfig',#blog app is added
+    'users.apps.UsersConfig'#users app added
 ]
 
 MIDDLEWARE = [
@@ -118,3 +121,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4' #updating the css framwork to be used
+
+LOGIN_REDIRECT_URL = 'blog-home' # redirecting to 'blog-home' after login
+
+LOGIN_URL = 'login' # redirecting to userside 'login' instead of admin
+
+# specify were the media should be saved
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
